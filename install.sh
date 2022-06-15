@@ -26,8 +26,8 @@ echo "Configuring apache2"
 sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf
 
 ln -sf $target/config/apache2/dnsmasq-rest-api.conf /etc/apache2/conf.d/dnsmasq-rest-api.conf
-mkdir $target/zones
-chown -R www-data $target/zones
+
+chown -R apache $target/zones
 cp $target/www/config.example.php $target/www/config.php
 
 #rc-service apache2 restart
